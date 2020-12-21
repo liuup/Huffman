@@ -3,10 +3,10 @@
 
 #include <iostream>
 #include <cstdio>
-#include <queue>
 #include <vector>
 #include <map>
 #include <string>
+#include <algorithm>
 
 using namespace std;
 
@@ -33,10 +33,12 @@ public:
     void createTree();  // 创建Huffman
 
 private:
-    map<char, int> huffman_map; // Huffman映射表
+    map<char, int> huffman_map;     // Huffman映射表
     map<char, int>::iterator iter;  // Huffman映射表遍历
 
-    Huffman * huffHeadPtr;  // Huffman头节点
+    vector<HuffNode *> huffnodes; // 输入的元素
+
+    HuffNode * huffHeadPtr;          // Huffman头节点
 
 
 

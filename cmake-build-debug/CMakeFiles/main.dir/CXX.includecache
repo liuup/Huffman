@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/liuup/Desktop/cpp_test/Huffman.cpp
+Huffman.h
+/home/liuup/Desktop/cpp_test/Huffman.h
+
+/home/liuup/Desktop/cpp_test/Huffman.h
+iostream
+-
+cstdio
+-
+vector
+-
+map
+-
+string
+-
+algorithm
+-
+

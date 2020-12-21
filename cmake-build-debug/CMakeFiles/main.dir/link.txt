@@ -1,0 +1,1 @@
+/usr/bin/c++   -std=c++11 -march=native -g  -rdynamic CMakeFiles/main.dir/main.cpp.o CMakeFiles/main.dir/Huffman.cpp.o  -o main  -lpthread -lSM -lICE -lX11 -lXext 
