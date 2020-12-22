@@ -10,7 +10,6 @@ bool sortByWeight(HuffNode * first, HuffNode * second)
 Huffman::Huffman()
 {
     huffHeadPtr = nullptr; // 头节点指向空
-//    index = 0;
 }
 
 // @brief 析构函数
@@ -91,15 +90,12 @@ void Huffman::getMap()
 // @brief 打印Huffman映射表
 void Huffman::showMap()
 {
-//    char flag;
-    cout << huffman_map.size() << endl;
-
+//    cout << huffman_map.size() << endl;
     for(iter = huffman_map.begin(); iter != huffman_map.end(); iter++)
     {
         cout << iter->first << " " << iter->second << endl;
     }
     cout << endl;
-//    flag = getchar();
 }
 
 // @brief 编码
@@ -119,9 +115,7 @@ void Huffman::encodeElement()
     }
 
     for(auto data : huffdata)
-    {
         setEncode(huffHeadPtr, data);
-    }
 
     cout << "编码后的信息:" << encode << endl;
 }
@@ -215,9 +209,7 @@ void Huffman::preOrder(HuffNode *head)
     if(head)
     {
         if(head->left == nullptr && head->right == nullptr)
-        {
             cout << head->data << " " << head->huff_code << endl;
-        }
         preOrder(head->left);
         preOrder(head->right);
     }

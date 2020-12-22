@@ -16,8 +16,6 @@ int main()
         cout << "Plz choose:";
         cin >> choose;
 
-//        system("clear");
-
         switch(choose)
         {
             case 1:
@@ -43,6 +41,5 @@ int main()
         cout << endl;
         huffman.clearData();    // 清除特定数据
     }
-
     return 0;
 }

@@ -38,8 +38,6 @@ public:
     void createTree();                  // 创建Huffman
 
     void preOrder(HuffNode * head);     // 先序遍历
-    void inOrder(HuffNode * head);      // 中序遍历
-    void postOrder(HuffNode * head);    // 后序遍历
 
     void clearData();   // 清除特定数据
 
@@ -55,6 +53,5 @@ private:
 
     HuffNode * huffHeadPtr;          // Huffman头节点
 };
-
 
 #endif //MAIN_HUFFMAN_H
