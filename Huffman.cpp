@@ -77,7 +77,6 @@ void Huffman::encodeElement()
 
     createTree();   // 构造huffman树
 
-    // TODO:对输入元素进行哈夫曼01编码
 
 
 }
@@ -124,8 +123,7 @@ void Huffman::createTree()
     }
 }
 
-// @brief 前序遍历
-void Huffman::preOrder(HuffNode * head)
+void Huffman::preOrder(HuffNode *head)
 {
     if(head)
     {
@@ -135,8 +133,7 @@ void Huffman::preOrder(HuffNode * head)
     }
 }
 
-// @brief 中序遍历
-void Huffman::inOrder(HuffNode * head)
+void Huffman::inOrder(HuffNode *head)
 {
     if(head)
     {
@@ -146,8 +143,7 @@ void Huffman::inOrder(HuffNode * head)
     }
 }
 
-// @brief 后序遍历
-void Huffman::postOrder(HuffNode * head)
+void Huffman::postOrder(HuffNode *head)
 {
     if(head)
     {
