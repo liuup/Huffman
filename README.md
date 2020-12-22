@@ -30,6 +30,8 @@ C++ 11
 cmake 3.10.2    
 make 4.1  
 
+![](./img/Screenshot from 2020-10-05 16-24-53.png)
+
 ## 运行代码
 1. ```~$git clone https://github.com/liuup/Huffman```
 2. ```~$cd Huffman```
@@ -38,11 +40,18 @@ make 4.1
 5. ```~$make -j8```
 6. ```~$./main```
 
+## 运行截图
+运行编译后的程序后,会出现以下5个选项:    
+![](./img/Screenshot from 2020-12-22 18-00-19.png)
 
+选择1后,将让用户输入字符与字符频度  
+![](./img/Screenshot from 2020-12-22 18-00-41.png)
 
+选择2后,将显示字符与字符频道  
+![](./img/Screenshot from 2020-12-22 18-01-03.png)
 
+选择3后.将提示用户输入预编码的字符并打印出来编码值  
+![](./img/Screenshot from 2020-12-22 18-01-24.png)
 
-
-
-
-
+选择4后,将提示用户输入编码值并打印出来解码后的字符  
+![](./img/Screenshot from 2020-12-22 18-01-42.png)
