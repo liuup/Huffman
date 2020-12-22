@@ -31,8 +31,10 @@ public:
     void showMap(); // 显示Huffman映射表
 
     void encodeElement();  // 编码
-//    void initCode();    /
     void decodeElement();  // 解码
+
+    void setEncode(HuffNode * head, char data); // 输出编码后的信息
+    void setDecode(); // 输出解码后的信息
 
     void createTree();  // 创建Huffman
 
@@ -44,7 +46,11 @@ private:
     map<char, int> huffman_map;     // Huffman映射表
     map<char, int>::iterator iter;  // Huffman映射表遍历
 
+    vector<char> huffdata;  //  输入的元素
     vector<HuffNode *> huffnodes; // 输入的元素
+
+    string encode;  // 编码后的信息
+    string decode;  // 解码后的信息
 
     HuffNode * huffHeadPtr;          // Huffman头节点
 

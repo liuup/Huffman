@@ -61,7 +61,6 @@ void Huffman::encodeElement()
     // input elements
     while(true)
     {
-//        HuffNode * temp = (HuffNode *)malloc((sizeof(HuffNode)));
         HuffNode * temp = new HuffNode;
 
         cin >> temp->data;
@@ -69,6 +68,7 @@ void Huffman::encodeElement()
         temp->left = nullptr;
         temp->right = nullptr;
 
+        huffdata.push_back(temp->data);
         huffnodes.push_back(temp);
 
         if((flag = getchar()) == '\n')
@@ -77,9 +77,7 @@ void Huffman::encodeElement()
 
     createTree();   // 构造huffman树
 
-
-
-    // 使用层次遍历 构造每一个节点
+    // 使用层次遍历 构造每一个节点Huffman编码
     if(huffHeadPtr == nullptr)
         return;
 
@@ -105,6 +103,21 @@ void Huffman::encodeElement()
     }
 
     preOrder(huffHeadPtr);    // 使用遍历来验证Huffman
+
+//    cout << "huffdata.size()" << huffdata.size() << endl;
+
+//    for(auto data : huffdata)
+//    {
+//        cout << data << endl;
+//    }
+    // TODO: 编码
+
+    for(auto data : huffdata)
+    {
+        setEncode(huffHeadPtr, data);
+    }
+
+    cout << "编码后的信息:" << encode << endl;
 }
 
 // @brief 解码
@@ -113,6 +126,25 @@ void Huffman::decodeElement()
 
 
 }
+
+
+void Huffman::setEncode(HuffNode * head, char data)
+{
+    if(head)
+    {
+        if(head->data == data)
+            encode += head->huff_code;
+        setEncode(head->left, data);
+        setEncode(head->right, data);
+    }
+}
+
+
+void Huffman::setDecode()
+{
+    // TODO: 补全函数
+}
+
 
 // @brief 创建Huffman树
 void Huffman::createTree()
