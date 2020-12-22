@@ -41,11 +41,8 @@ int main()
         }
 
         cout << endl;
-
-//        system("clear");
+        huffman.clearData();    // 清除特定数据
     }
-
-
 
     return 0;
 }

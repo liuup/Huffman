@@ -15,7 +15,7 @@ struct HuffNode
 {
     char data;  // 信息
     int weight; // 权值
-    string huff_code;
+    string huff_code;   // Huffman编码值
     HuffNode * left;    // 左节点
     HuffNode * right;   // 右节点
 };
@@ -23,8 +23,8 @@ struct HuffNode
 class Huffman
 {
 public:
-    Huffman();
-    ~Huffman();
+    Huffman();  // 构造函数
+    ~Huffman(); // 析构函数
 
     void getMap();  // 输入Huffman映射表
     void showMap(); // 显示Huffman映射表
@@ -32,14 +32,16 @@ public:
     void encodeElement();  // 编码
     void decodeElement();  // 解码
 
-    void setEncode(HuffNode * head, char data); // 输出编码后的信息
+    void setEncode(HuffNode * head, char data);     // 输出编码后的信息
     void setDecode(HuffNode * head, string encode); // 输出解码后的信息
 
-    void createTree();  // 创建Huffman
+    void createTree();                  // 创建Huffman
 
-    void preOrder(HuffNode * head);
-    void inOrder(HuffNode * head);
-    void postOrder(HuffNode * head);
+    void preOrder(HuffNode * head);     // 先序遍历
+    void inOrder(HuffNode * head);      // 中序遍历
+    void postOrder(HuffNode * head);    // 后序遍历
+
+    void clearData();   // 清除特定数据
 
 private:
     map<char, int> huffman_map;     // Huffman映射表
@@ -50,11 +52,8 @@ private:
 
     string encode;  // 编码后的信息
     string decode;  // 解码后的信息
-//    int index;      // decode的下标
 
     HuffNode * huffHeadPtr;          // Huffman头节点
-
-
 };
 
 
