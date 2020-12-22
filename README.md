@@ -30,7 +30,7 @@ C++ 11
 cmake 3.10.2    
 make 4.1  
 
-![](./img/Screenshot from 2020-10-05 16-24-53.png)
+![](./img/Screenshotfrom2020-10-0516-24-53.png)
 
 ## 运行代码
 1. ```~$git clone https://github.com/liuup/Huffman```
