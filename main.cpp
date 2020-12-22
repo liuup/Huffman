@@ -2,12 +2,8 @@
 
 int main()
 {
-    Huffman huffman;
-
     int choose;
-
-//    huffman.getMap();
-//    huffman.showMap();
+    Huffman huffman;
 
     while(true)
     {
@@ -19,6 +15,8 @@ int main()
 
         cout << "Plz choose:";
         cin >> choose;
+
+//        system("clear");
 
         switch(choose)
         {
@@ -41,6 +39,10 @@ int main()
                 cout << "Plz consider another choose!" << endl;
                 break;
         }
+
+        cout << endl;
+
+//        system("clear");
     }
 
 

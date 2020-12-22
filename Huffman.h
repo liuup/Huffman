@@ -15,7 +15,6 @@ struct HuffNode
 {
     char data;  // 信息
     int weight; // 权值
-//    char huffman_code[512];
     string huff_code;
     HuffNode * left;    // 左节点
     HuffNode * right;   // 右节点
@@ -34,7 +33,7 @@ public:
     void decodeElement();  // 解码
 
     void setEncode(HuffNode * head, char data); // 输出编码后的信息
-    void setDecode(); // 输出解码后的信息
+    void setDecode(HuffNode * head, string encode); // 输出解码后的信息
 
     void createTree();  // 创建Huffman
 
@@ -51,10 +50,9 @@ private:
 
     string encode;  // 编码后的信息
     string decode;  // 解码后的信息
+//    int index;      // decode的下标
 
     HuffNode * huffHeadPtr;          // Huffman头节点
-
-
 
 
 };

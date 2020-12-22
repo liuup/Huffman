@@ -1,5 +1,7 @@
 #include "Huffman.h"
 
+//int index = 0;
+
 // @brief 排序函数
 bool sortByWeight(HuffNode * first, HuffNode * second)
 {
@@ -10,6 +12,7 @@ bool sortByWeight(HuffNode * first, HuffNode * second)
 Huffman::Huffman()
 {
     huffHeadPtr = nullptr; // 头节点指向空
+//    index = 0;
 }
 
 // @brief 析构函数
@@ -17,6 +20,7 @@ Huffman::~Huffman()
 {
     // TODO:递归删除哈弗曼树
     delete huffHeadPtr;    // 删除头节点
+    encode = "";
 }
 
 // @brief 输入Huffman映射表
@@ -47,33 +51,46 @@ void Huffman::getMap()
 // @brief 打印Huffman映射表
 void Huffman::showMap()
 {
+//    char flag;
+    cout << huffman_map.size() << endl;
+
     for(iter = huffman_map.begin(); iter != huffman_map.end(); iter++)
     {
         cout << iter->first << " " << iter->second << endl;
     }
+    cout << endl;
+//    flag = getchar();
 }
 
 // @brief 编码
 void Huffman::encodeElement()
 {
     char flag;
+    char input;
 
     // input elements
     while(true)
     {
-        HuffNode * temp = new HuffNode;
-
-        cin >> temp->data;
-        temp->weight = huffman_map[temp->data];
-        temp->left = nullptr;
-        temp->right = nullptr;
-
-        huffdata.push_back(temp->data);
-        huffnodes.push_back(temp);
+        cin >> input;
+        huffdata.push_back(input);
 
         if((flag = getchar()) == '\n')
             break;
     }
+
+    // 创建初始化容器
+    for(iter = huffman_map.begin(); iter != huffman_map.end(); iter++)
+    {
+        HuffNode * temp = new HuffNode;
+
+        temp->data = iter->first;
+        temp->weight = iter->second;
+        temp->left = nullptr;
+        temp->right = nullptr;
+
+        huffnodes.push_back(temp);
+    }
+
 
     createTree();   // 构造huffman树
 
@@ -104,13 +121,7 @@ void Huffman::encodeElement()
 
     preOrder(huffHeadPtr);    // 使用遍历来验证Huffman
 
-//    cout << "huffdata.size()" << huffdata.size() << endl;
-
-//    for(auto data : huffdata)
-//    {
-//        cout << data << endl;
-//    }
-    // TODO: 编码
+    cout << "huffdata.size() " << huffdata.size() << endl;
 
     for(auto data : huffdata)
     {
@@ -123,11 +134,41 @@ void Huffman::encodeElement()
 // @brief 解码
 void Huffman::decodeElement()
 {
+    // TODO: 完善解码程序
+    cin >> encode;
 
+    cout << "encode.size() " << encode.size() << endl;
 
+//    setDecode(huffHeadPtr, encode);
+    int index = 0;
+    HuffNode * temp = huffHeadPtr;
+    while(index < encode.size())
+    {
+        if(encode.at(index) == '0')
+        {
+            temp = temp->left;
+            index++;
+        }
+        else if(encode.at(index) == '1')
+        {
+            temp = temp->right;
+            index++;
+        }
+
+        if(temp->left == nullptr && temp->right == nullptr)
+        {
+            decode += temp->data;
+            temp = huffHeadPtr;
+            //            continue;
+        }
+    }
+
+//    cout << decode << endl;
+
+    cout << "decode" << decode << endl;
 }
 
-
+// @brief 设置编码
 void Huffman::setEncode(HuffNode * head, char data)
 {
     if(head)
@@ -139,12 +180,36 @@ void Huffman::setEncode(HuffNode * head, char data)
     }
 }
 
-
-void Huffman::setDecode()
-{
-    // TODO: 补全函数
-}
-
+// @brief 设置解码
+//void Huffman::setDecode(HuffNode * head, string encode)
+//{
+//    // TODO: 补全函数
+//
+//    if(head)
+//    {
+//        cout << "index" << index << endl;
+//        if(index > encode.size())
+//            return;
+//
+//        if(head->left == nullptr && head->right == nullptr)
+//        {
+//            decode += head->data;
+//            head = huffHeadPtr;
+//        }
+//
+//        if(encode.at(index) == '0')
+//        {
+//            index++;
+//            setDecode(head->left, encode);
+//        }
+//
+//        if(encode.at(index) == '1')
+//        {
+//            index++;
+//            setDecode(head->right, encode);
+//        }
+//    }
+//}
 
 // @brief 创建Huffman树
 void Huffman::createTree()
@@ -181,6 +246,7 @@ void Huffman::createTree()
     }
 }
 
+// @brief 使用先序遍历出叶子节点的Huffman值
 void Huffman::preOrder(HuffNode *head)
 {
     if(head)
@@ -194,6 +260,7 @@ void Huffman::preOrder(HuffNode *head)
     }
 }
 
+//　＠brief 使用中序遍历出叶子节点的Huffman值
 void Huffman::inOrder(HuffNode *head)
 {
     if(head)
@@ -207,6 +274,7 @@ void Huffman::inOrder(HuffNode *head)
     }
 }
 
+// @brief 使用后序遍历出叶子节点的Huffman值
 void Huffman::postOrder(HuffNode *head)
 {
     if(head)
