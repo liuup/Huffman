@@ -4,6 +4,7 @@
 #include <iostream>
 #include <cstdio>
 #include <vector>
+#include <queue>
 #include <map>
 #include <string>
 #include <algorithm>
@@ -14,6 +15,8 @@ struct HuffNode
 {
     char data;  // 信息
     int weight; // 权值
+//    char huffman_code[512];
+    string huff_code;
     HuffNode * left;    // 左节点
     HuffNode * right;   // 右节点
 };
@@ -28,6 +31,7 @@ public:
     void showMap(); // 显示Huffman映射表
 
     void encodeElement();  // 编码
+//    void initCode();    /
     void decodeElement();  // 解码
 
     void createTree();  // 创建Huffman

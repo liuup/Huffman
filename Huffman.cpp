@@ -79,6 +79,32 @@ void Huffman::encodeElement()
 
 
 
+    // 使用层次遍历 构造每一个节点
+    if(huffHeadPtr == nullptr)
+        return;
+
+    HuffNode * headTemp = huffHeadPtr;
+    queue<HuffNode *> huffnodes_qe;
+    huffnodes_qe.push(headTemp);
+
+    while(huffnodes_qe.size() > 0)
+    {
+        headTemp = huffnodes_qe.front();
+        huffnodes_qe.pop();
+
+        if(headTemp->left)
+        {
+            huffnodes_qe.push(headTemp->left);
+            headTemp->left->huff_code = headTemp->huff_code + "0";
+        }
+        if(headTemp->right)
+        {
+            huffnodes_qe.push(headTemp->right);
+            headTemp->right->huff_code = headTemp->huff_code + "1";
+        }
+    }
+
+    preOrder(huffHeadPtr);    // 使用遍历来验证Huffman
 }
 
 // @brief 解码
@@ -127,7 +153,10 @@ void Huffman::preOrder(HuffNode *head)
 {
     if(head)
     {
-        cout << head->weight << endl;
+        if(head->left == nullptr && head->right == nullptr)
+        {
+            cout << head->data << " " << head->huff_code << endl;
+        }
         preOrder(head->left);
         preOrder(head->right);
     }
@@ -138,7 +167,10 @@ void Huffman::inOrder(HuffNode *head)
     if(head)
     {
         preOrder(head->left);
-        cout << head->weight << endl;
+        if(head->left == nullptr && head->right == nullptr)
+        {
+            cout << head->data << " " << head->huff_code << endl;
+        }
         preOrder(head->right);
     }
 }
@@ -149,6 +181,9 @@ void Huffman::postOrder(HuffNode *head)
     {
         preOrder(head->left);
         preOrder(head->right);
-        cout << head->weight << endl;
+        if(head->left == nullptr && head->right == nullptr)
+        {
+            cout << head->data << " " << head->huff_code << endl;
+        }
     }
 }
