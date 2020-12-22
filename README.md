@@ -10,6 +10,10 @@ A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z
 字符频度：  
 186,64,13,22,32,103,21,15,47,571,5,32,20,57,63,15,1,48,51,80,23,7,18,2,16,38 
 
+Test dataset:  
+A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z  
+186,64,13,22,32,103,21,15,47,571,5,32,20,57,63,15,1,48,51,80,23,7,18,2,16,38
+
 ## 设计要求： 
 1. 由用户来输入初始字符集、相应字符及字符频度； 
 2. 输入一个要发报的字符串，将其编码后发报； 
@@ -24,12 +28,12 @@ cmake 3.10.2
 make 4.1  
 
 ## 运行代码
-1. ```git clone https://github.com/liuup/Huffman```
-2. ```cd Huffman```
-3. ```mkdir build && cd build```
-4. ```cmake ..```
-5. ```make -j8```
-6. ```./main```
+1. ```~$git clone https://github.com/liuup/Huffman```
+2. ```~$cd Huffman```
+3. ```~$mkdir build && cd build```
+4. ```~$cmake ..```
+5. ```~$make -j8```
+6. ```~$./main```
 
 
 
